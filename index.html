@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VΞXA — Gaming Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ELECTRIC BACKGROUND -->
+<svg class="electric-bg" viewBox="0 0 1600 1000" preserveAspectRatio="none">
+
+    <path class="electric-line" d="M80 0 C130 120 40 190 150 280 S70 430 180 520 S100 700 210 1000"/>
+    <path class="electric-line" d="M230 0 C180 130 300 190 220 330 S320 470 240 610 S330 820 260 1000"/>
+    <path class="electric-line" d="M390 0 C450 120 330 220 430 330 S350 500 460 620 S370 820 450 1000"/>
+    <path class="electric-line" d="M540 0 C480 150 600 240 520 360 S620 520 540 690 S620 850 560 1000"/>
+    <path class="electric-line" d="M700 0 C760 140 650 230 750 350 S650 520 770 650 S680 820 740 1000"/>
+    <path class="electric-line" d="M850 0 C790 120 900 220 820 340 S930 500 840 630 S920 820 860 1000"/>
+    <path class="electric-line" d="M1000 0 C1060 140 950 220 1040 350 S960 510 1080 650 S980 830 1040 1000"/>
+    <path class="electric-line" d="M1150 0 C1080 130 1210 220 1130 350 S1240 510 1160 660 S1230 830 1180 1000"/>
+    <path class="electric-line" d="M1290 0 C1350 130 1240 230 1330 350 S1250 520 1360 650 S1270 830 1330 1000"/>
+    <path class="electric-line" d="M1430 0 C1370 140 1490 240 1410 370 S1510 520 1430 680 S1510 850 1460 1000"/>
+    <path class="electric-line" d="M1530 0 C1480 130 1570 240 1500 360 S1580 500 1510 650 S1570 830 1530 1000"/>
+    <path class="electric-line" d="M20 0 C90 170 0 280 100 420 S20 600 120 760 S30 900 80 1000"/>
+
+</svg>
+
+
+<!-- HEADER -->
+<header class="header">
+
+    <a href="index.html" class="vexa-brand">
+        <span>VΞXA</span>
+        <small>AHMED SYAM</small>
+    </a>
+
+    <nav class="nav">
+        <a href="#store">المتجر</a>
+        <a href="#games">الألعاب</a>
+        <a href="#categories">التصنيفات</a>
+        <a href="#device">جهازك</a>
+        <a href="#online">أونلاين</a>
+    </nav>
+
+    <button class="search-btn" onclick="searchGames()">
+        🔍
+    </button>
+
+</header>
+
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="store">
+
+    <div class="hero-text">
+        <span class="eyebrow">VΞXA STORE</span>
+
+        <h1>العاب حقيقية.<br>مجانية. وخفيفة.</h1>
+
+        <p>
+            منصة ألعاب بسيطة وسريعة للأجهزة الضعيفة والمتوسطة،
+            مع ألعاب مجانية ومصادر رسمية.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="supertux.html" class="primary-btn">
+                استكشف الألعاب
+            </a>
+
+            <a href="#device" class="secondary-btn">
+                شوف جهازك
+            </a>
+        </div>
+    </div>
+
+
+    <div class="featured-game">
+
+        <div class="featured-image">
+            <img src="supertux-logo.png" alt="SuperTux">
+        </div>
+
+        <div class="featured-info">
+
+            <span class="game-badge">FREE</span>
+
+            <h2>SuperTux</h2>
+
+            <p>
+                لعبة Platformer مجانية ومفتوحة المصدر،
+                مناسبة للأجهزة الضعيفة وتدعم اللعب المحلي.
+            </p>
+
+            <div class="game-meta">
+                <span>🎮 Platformer</span>
+                <span>💾 294 MB</span>
+                <span>🕹️ Controller</span>
+                <span>👥 Multiplayer</span>
+            </div>
+
+            <a href="supertux.html" class="game-btn">
+                عرض اللعبة →
+            </a>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- GAMES -->
+<section class="games-section" id="games">
+
+    <div class="section-title">
+        <div>
+            <span>VΞXA LIBRARY</span>
+            <h2>الألعاب</h2>
+        </div>
+    </div>
+
+
+    <div class="library-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="categories">
+
+            <button class="category active"
+                    onclick="filterGames('all', this)">
+                كل الألعاب
+            </button>
+
+            <button class="category"
+                    onclick="filterGames('action', this)">
+                ⚔️ أكشن
+            </button>
+
+            <button class="category"
+                    onclick="filterGames('indie', this)">
+                🎨 Indie
+            </button>
+
+            <button class="category"
+                    onclick="filterGames('racing', this)">
+                🏎️ سباق
+            </button>
+
+            <button class="category"
+                    onclick="filterGames('rpg', this)">
+                🧙 RPG
+            </button>
+
+            <button class="category"
+                    onclick="filterGames('puzzle', this)">
+                🧩 ألغاز
+            </button>
+
+            <button class="category"
+                    onclick="filterGames('online', this)">
+                🌐 Online
+            </button>
+
+            <button class="category"
+                    onclick="filterGames('light', this)">
+                ⚡ خفيفة
+            </button>
+
+            <button class="category"
+                    onclick="filterGames('controller', this)">
+                🎮 Controller
+            </button>
+
+        </aside>
+
+
+        <!-- GAME GRID -->
+        <div class="game-grid">
+
+            <!-- SUPERTUX -->
+            <article class="game-card"
+                     data-category="indie light controller">
+
+                <a href="supertux.html">
+                    <div class="card-image">
+                        <img src="supertux-logo.png" alt="SuperTux">
+                        <span>FREE</span>
+                    </div>
+
+                    <div class="card-content">
+                        <h3>SuperTux</h3>
+                        <p>Platformer • 294 MB</p>
+                    </div>
+                </a>
+
+            </article>
+
+
+            <!-- UNCIV -->
+            <article class="game-card"
+                     data-category="rpg indie light">
+
+                <div class="card-image">
+                    <img
+                        src="https://raw.githubusercontent.com/yairm210/Unciv/master/fastlane/metadata/android/en-US/images/featureGraphic.png"
+                        alt="Unciv">
+
+                    <span>قريبًا</span>
+                </div>
+
+                <div class="card-content">
+                    <h3>Unciv</h3>
+                    <p>Strategy • خفيفة جدًا</p>
+                </div>
+
+            </article>
+
+
+            <!-- OPENTTD -->
+            <article class="game-card"
+                     data-category="indie online light">
+
+                <div class="card-image">
+                    <img
+                        src="https://www.openttd.org/assets/images/screenshots/1.png"
+                        alt="OpenTTD">
+
+                    <span>قريبًا</span>
+                </div>
+
+                <div class="card-content">
+                    <h3>OpenTTD</h3>
+                    <p>Strategy • Online</p>
+                </div>
+
+            </article>
+
+
+            <!-- PLACEHOLDER -->
+            <article class="game-card"
+                     data-category="action">
+
+                <div class="card-image placeholder">
+                    <strong>VΞXA</strong>
+                    <span>قريبًا</span>
+                </div>
+
+                <div class="card-content">
+                    <h3>لعبة جديدة</h3>
+                    <p>Coming Soon</p>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DEVICE -->
+<section class="device-section" id="device">
+
+    <span>SMART FILTER</span>
+
+    <h2>🎯 اللعبة المناسبة لجهازك</h2>
+
+    <p>
+        اختار إمكانيات جهازك وشوف الألعاب المناسبة ليه.
+    </p>
+
+    <div class="device-options">
+
+        <button onclick="selectDevice(this)">
+            💻 جهاز ضعيف
+        </button>
+
+        <button onclick="selectDevice(this)">
+            ⚙️ جهاز متوسط
+        </button>
+
+        <button onclick="selectDevice(this)">
+            🚀 جهاز قوي
+        </button>
+
+        <button onclick="selectDevice(this)">
+            🎮 Controller
+        </button>
+
+        <button onclick="selectDevice(this)">
+            🌐 Multiplayer
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ONLINE -->
+<section class="online-section" id="online">
+
+    <span>PLAY TOGETHER</span>
+
+    <h2>🌐 ألعاب أونلاين</h2>
+
+    <p>
+        ألعاب تقدر تلعبها مع أصحابك أونلاين.
+    </p>
+
+    <div class="online-box">
+
+        <div>
+            <strong>قريبًا على VΞXA</strong>
+            <p>
+                هنضيف ألعاب Online خفيفة تشتغل حتى على الأجهزة الضعيفة.
+            </p>
+        </div>
+
+        <span class="online-status">COMING SOON</span>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-brand">
+        <strong>VΞXA</strong>
+        <span>AHMED SYAM</span>
+    </div>
+
+    <p>
+        منصة ألعاب مجانية وخفيفة للأجهزة المختلفة.
+    </p>
+
+    <small>
+        © 2026 VΞXA — All Rights Reserved
+    </small>
+
+</footer>
+
+
+<script>
+
+function searchGames() {
+
+    const query = prompt("اكتب اسم اللعبة:");
+
+    if (!query) return;
+
+    const cards = document.querySelectorAll(".game-card");
+
+    cards.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        card.hidden = !text.includes(query.toLowerCase());
+
+    });
+
+}
+
+
+function filterGames(category, button) {
+
+    document.querySelectorAll(".category")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".game-card")
+        .forEach(card => {
+
+            if (category === "all") {
+
+                card.hidden = false;
+
+                return;
+
+            }
+
+            const categories =
+                card.dataset.category || "";
+
+            card.hidden =
+                !categories.includes(category);
+
+        });
+
+}
+
+
+function selectDevice(button) {
+
+    document.querySelectorAll(".device-options button")
+        .forEach(btn => btn.classList.remove("selected"));
+
+    button.classList.add("selected");
+
+}
+
+
+function addFavorite(game) {
+
+    alert(game + " اتضافت للمفضلة ❤️");
+
+}
+
+
+function comingSoon(event) {
+
+    if (event) event.preventDefault();
+
+    alert("اللعبة دي هتتوفر قريبًا على VΞXA 🎮");
+
+}
+
+</script>
+
+</body>
+</html>
+```
