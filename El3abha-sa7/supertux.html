@@ -1,0 +1,1271 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SuperTux 0.7.0 | العبها صح</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #08090d;
+            color: white;
+            line-height: 1.8;
+        }
+
+        /* HEADER */
+
+        header {
+            height: 75px;
+            background: #111218;
+            border-bottom: 1px solid #272a34;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .back {
+            background: #1a1c24;
+            border: 1px solid #30333e;
+
+            color: white;
+            text-decoration: none;
+
+            padding: 8px 16px;
+
+            border-radius: 8px;
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* HERO */
+
+        .hero {
+            margin-top: 40px;
+
+            display: grid;
+
+            grid-template-columns: 330px 1fr;
+
+            gap: 45px;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #25283a,
+                    #12141c 45%,
+                    #0d0e13
+                );
+
+            border: 1px solid #2b2e39;
+        }
+
+        .cover {
+            width: 100%;
+            height: 430px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            border: 1px solid #3a3d49;
+        }
+
+        .hero-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-info h1 {
+            font-size: 52px;
+            margin-bottom: 2px;
+        }
+
+        .version {
+            color: #888;
+            margin-bottom: 18px;
+        }
+
+        .rating {
+            width: fit-content;
+
+            background: #1d202a;
+
+            border: 1px solid #343743;
+
+            padding: 7px 13px;
+
+            border-radius: 8px;
+
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            color: #b8bac2;
+            font-size: 18px;
+
+            max-width: 700px;
+
+            margin-bottom: 25px;
+        }
+
+        /* QUICK DATA */
+
+        .quick-data {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .data {
+            background: rgba(20,22,29,0.8);
+
+            border: 1px solid #292c36;
+
+            padding: 13px 15px;
+
+            border-radius: 10px;
+        }
+
+        .data small {
+            display: block;
+
+            color: #777;
+        }
+
+        .data strong {
+            font-size: 15px;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            margin-top: 55px;
+        }
+
+        .title {
+            font-size: 28px;
+
+            margin-bottom: 20px;
+
+            border-right: 4px solid white;
+
+            padding-right: 12px;
+        }
+
+        .box {
+            background: #111219;
+
+            border: 1px solid #272a34;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            color: #bcbec6;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+        }
+
+        .feature {
+            background: #111219;
+
+            border: 1px solid #292c36;
+
+            padding: 18px;
+
+            border-radius: 12px;
+
+            text-align: center;
+        }
+
+        .feature span {
+            display: block;
+
+            font-size: 25px;
+
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+        /* REQUIREMENTS */
+
+        .requirements {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .req-card {
+            background: #111219;
+
+            border: 1px solid #292c36;
+
+            border-radius: 15px;
+
+            padding: 25px;
+        }
+
+        .req-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .req-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 11px 0;
+
+            border-bottom: 1px solid #242630;
+        }
+
+        .req-row:last-child {
+            border-bottom: none;
+        }
+
+        .req-row span {
+            color: #777;
+        }
+
+        .req-row strong {
+            text-align: left;
+        }
+
+        .note {
+            margin-top: 15px;
+
+            padding: 12px;
+
+            background: #191b22;
+
+            border-radius: 8px;
+
+            color: #8d8f98;
+
+            font-size: 13px;
+        }
+
+        /* CONTROLS */
+
+        .controls {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .control {
+            background: #111219;
+
+            border: 1px solid #292c36;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            text-align: center;
+        }
+
+        .key {
+            display: inline-block;
+
+            padding: 4px 12px;
+
+            background: #22242d;
+
+            border: 1px solid #444752;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+        .control p {
+            color: #999;
+
+            font-size: 14px;
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .gallery-item {
+            height: 280px;
+
+            overflow: hidden;
+
+            border-radius: 14px;
+
+            border: 1px solid #292c36;
+
+            cursor: pointer;
+
+            background: #15171e;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* IMAGE MODAL */
+
+        .modal {
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            background: rgba(0,0,0,0.95);
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal img {
+            max-width: 90%;
+
+            max-height: 85%;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+        }
+
+        .modal button {
+            position: absolute;
+
+            width: 50px;
+            height: 50px;
+
+            border-radius: 50%;
+
+            border: 1px solid #444;
+
+            background: #1c1e25;
+
+            color: white;
+
+            font-size: 22px;
+
+            cursor: pointer;
+        }
+
+        .close {
+            top: 25px;
+            right: 25px;
+        }
+
+        .prev {
+            right: 25px;
+            top: 50%;
+
+            transform: translateY(-50%);
+        }
+
+        .next {
+            left: 25px;
+            top: 50%;
+
+            transform: translateY(-50%);
+        }
+
+        /* CREDITS */
+
+        .credits {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .credit {
+            background: #111219;
+
+            border: 1px solid #292c36;
+
+            border-radius: 12px;
+
+            padding: 20px;
+        }
+
+        .credit small {
+            display: block;
+
+            color: #777;
+
+            margin-bottom: 3px;
+        }
+
+        .credit strong {
+            font-size: 16px;
+        }
+
+        /* DOWNLOAD */
+
+        .download {
+            margin-top: 60px;
+
+            text-align: center;
+
+            padding: 45px 25px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #191b25,
+                    #101116
+                );
+
+            border: 1px solid #30333e;
+        }
+
+        .download h2 {
+            font-size: 31px;
+
+            margin-bottom: 8px;
+        }
+
+        .download p {
+            color: #888;
+
+            margin-bottom: 25px;
+        }
+
+        .download a {
+            display: inline-block;
+
+            background: white;
+
+            color: #111;
+
+            text-decoration: none;
+
+            padding: 14px 45px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            font-size: 17px;
+
+            transition: 0.2s;
+        }
+
+        .download a:hover {
+            transform: scale(1.04);
+        }
+
+        .download small {
+            display: block;
+
+            color: #666;
+
+            margin-top: 12px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 70px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: #666;
+
+            border-top: 1px solid #22242a;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .cover {
+                max-width: 330px;
+                margin: auto;
+            }
+
+            .features {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .controls {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .requirements {
+                grid-template-columns: 1fr;
+            }
+
+            .credits {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                height: auto;
+
+                padding: 18px 5%;
+
+                flex-wrap: wrap;
+
+                gap: 15px;
+            }
+
+            nav {
+                order: 3;
+
+                width: 100%;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .hero {
+                padding: 18px;
+            }
+
+            .hero-info h1 {
+                font-size: 40px;
+            }
+
+            .quick-data {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 230px;
+            }
+
+            .req-row {
+                flex-direction: column;
+                gap: 2px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        🎮 العبها صح
+    </div>
+
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html">ألعاب PC</a>
+        <a href="index.html">ألعاب خفيفة</a>
+    </nav>
+
+    <a href="index.html" class="back">
+        ← رجوع
+    </a>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <img
+            src="supertux-logo.png"
+            class="cover"
+            alt="SuperTux"
+        >
+
+
+        <div class="hero-info">
+
+            <h1>
+                SuperTux
+            </h1>
+
+            <div class="version">
+                الإصدار 0.7.0
+            </div>
+
+            <div class="rating">
+                ⭐ 4.5 / 5
+            </div>
+
+            <p class="intro">
+                لعبة منصات ثنائية الأبعاد مجانية ومفتوحة المصدر،
+                مستوحاة من ألعاب الـ Jump & Run الكلاسيكية.
+                تحكم في Tux وخوض مغامرة مليئة بالمراحل
+                والأعداء والعقبات.
+            </p>
+
+
+            <div class="quick-data">
+
+                <div class="data">
+                    <small>النوع</small>
+                    <strong>Platformer</strong>
+                </div>
+
+                <div class="data">
+                    <small>المطور</small>
+                    <strong>SuperTux Team</strong>
+                </div>
+
+                <div class="data">
+                    <small>تاريخ الإصدار</small>
+                    <strong>15 مارس 2026</strong>
+                </div>
+
+                <div class="data">
+                    <small>المنصة</small>
+                    <strong>Windows PC</strong>
+                </div>
+
+                <div class="data">
+                    <small>الحجم</small>
+                    <strong>حوالي 294 MB</strong>
+                </div>
+
+                <div class="data">
+                    <small>اللاعبون</small>
+                    <strong>Single + Local Multiplayer</strong>
+                </div>
+
+                <div class="data">
+                    <small>اللغة</small>
+                    <strong>متعددة اللغات</strong>
+                </div>
+
+                <div class="data">
+                    <small>الترخيص</small>
+                    <strong>Open Source</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ABOUT -->
+
+    <section class="section">
+
+        <h2 class="title">
+            🎮 عن اللعبة
+        </h2>
+
+        <div class="box">
+
+            <p>
+                SuperTux هي لعبة منصات ثنائية الأبعاد
+                مجانية ومفتوحة المصدر. تتحكم في شخصية Tux
+                وتحاول عبور المراحل المختلفة، التغلب على
+                الأعداء وجمع العناصر والوصول إلى نهاية كل مرحلة.
+            </p>
+
+            <br>
+
+            <p>
+                الإصدار 0.7.0 يقدم تحديثات كبيرة في الرسومات
+                والمراحل والمحتوى، بالإضافة إلى تحسينات
+                في طريقة اللعب وإضافة خصائص جديدة.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FEATURES -->
+
+    <section class="section">
+
+        <h2 class="title">
+            🔥 المميزات
+        </h2>
+
+
+        <div class="features">
+
+            <div class="feature">
+                <span>🎮</span>
+                <p>Gameplay كلاسيكي</p>
+            </div>
+
+            <div class="feature">
+                <span>🗺️</span>
+                <p>مراحل وعوالم متعددة</p>
+            </div>
+
+            <div class="feature">
+                <span>👥</span>
+                <p>Local Multiplayer</p>
+            </div>
+
+            <div class="feature">
+                <span>🆓</span>
+                <p>مجانية ومفتوحة المصدر</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- REQUIREMENTS -->
+
+    <section class="section">
+
+        <h2 class="title">
+            🖥️ متطلبات التشغيل
+        </h2>
+
+
+        <div class="requirements">
+
+
+            <div class="req-card">
+
+                <h3>
+                    الحد الأدنى للتشغيل
+                </h3>
+
+                <div class="req-row">
+                    <span>النظام</span>
+                    <strong>Windows 10 64-bit</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>المعالج</span>
+                    <strong>Intel Core 2 Duo</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>الرامات</span>
+                    <strong>2 GB RAM</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>كرت الشاشة</span>
+                    <strong>Intel HD Graphics</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>التخزين</span>
+                    <strong>1 GB مساحة حرة</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>الرسوميات</span>
+                    <strong>OpenGL Compatible</strong>
+                </div>
+
+                <div class="note">
+                    ⚠️ المتطلبات المذكورة هنا تقديرية
+                    لتشغيل اللعبة وليست مواصفات Minimum
+                    رسمية منشورة من المطور.
+                </div>
+
+            </div>
+
+
+
+            <div class="req-card">
+
+                <h3>
+                    تشغيل مريح
+                </h3>
+
+                <div class="req-row">
+                    <span>النظام</span>
+                    <strong>Windows 10 / 11 64-bit</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>المعالج</span>
+                    <strong>Intel Core i3 / Ryzen 3</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>الرامات</span>
+                    <strong>4 GB RAM</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>كرت الشاشة</span>
+                    <strong>Intel UHD / Radeon</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>التخزين</span>
+                    <strong>1 GB مساحة حرة</strong>
+                </div>
+
+                <div class="req-row">
+                    <span>يد التحكم</span>
+                    <strong>متاحة حسب الإعدادات</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CONTROLS -->
+
+    <section class="section">
+
+        <h2 class="title">
+            🎮 التحكم
+        </h2>
+
+
+        <div class="controls">
+
+            <div class="control">
+                <div class="key">← →</div>
+                <p>الحركة</p>
+            </div>
+
+            <div class="control">
+                <div class="key">Space</div>
+                <p>القفز</p>
+            </div>
+
+            <div class="control">
+                <div class="key">↓</div>
+                <p>الانحناء</p>
+            </div>
+
+            <div class="control">
+                <div class="key">↑</div>
+                <p>التفاعل</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- GALLERY -->
+
+    <section class="section">
+
+        <h2 class="title">
+            📸 صور من اللعبة
+        </h2>
+
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+                <img src="supertux-1.png" alt="SuperTux screenshot">
+            </div>
+
+            <div class="gallery-item">
+                <img src="supertux-2.png" alt="SuperTux screenshot">
+            </div>
+
+            <div class="gallery-item">
+                <img src="supertux-3.png" alt="SuperTux screenshot">
+            </div>
+
+            <div class="gallery-item">
+                <img src="supertux-4.png" alt="SuperTux screenshot">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CREDITS -->
+
+    <section class="section">
+
+        <h2 class="title">
+            📌 معلومات الصفحة
+        </h2>
+
+
+        <div class="credits">
+
+            <div class="credit">
+                <small>المطور</small>
+                <strong>SuperTux Team</strong>
+            </div>
+
+            <div class="credit">
+                <small>إعداد وتجميع</small>
+                <strong>Ahmed Syam</strong>
+            </div>
+
+            <div class="credit">
+                <small>المصدر</small>
+                <strong>SuperTux Official</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- DOWNLOAD -->
+
+    <section class="download">
+
+        <h2>
+            ⬇️ تحميل SuperTux
+        </h2>
+
+        <p>
+            Windows 64-bit • Portable • الإصدار 0.7.0
+        </p>
+
+        <a
+            href="https://github.com/SuperTux/supertux/releases/download/v0.7.0/SuperTux-v0.7.0-win64-portable.zip"
+            target="_blank"
+        >
+            تحميل اللعبة
+        </a>
+
+        <small>
+            التحميل يتم من الإصدار الرسمي للعبة.
+        </small>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 العبها صح 🎮
+    </p>
+
+    <p>
+        إعداد وتجميع: Ahmed Syam
+    </p>
+
+</footer>
+
+
+
+<!-- IMAGE MODAL -->
+
+<div class="modal" id="modal">
+
+    <button class="close" id="close">
+        ✕
+    </button>
+
+    <button class="prev" id="prev">
+        ❮
+    </button>
+
+    <img id="modalImage" src="" alt="SuperTux">
+
+    <button class="next" id="next">
+        ❯
+    </button>
+
+</div>
+
+
+
+<script>
+
+    const items =
+        document.querySelectorAll(".gallery-item img");
+
+    const modal =
+        document.getElementById("modal");
+
+    const modalImage =
+        document.getElementById("modalImage");
+
+    const close =
+        document.getElementById("close");
+
+    const prev =
+        document.getElementById("prev");
+
+    const next =
+        document.getElementById("next");
+
+    let current = 0;
+
+
+    function openImage(index) {
+
+        current = index;
+
+        modalImage.src =
+            items[current].src;
+
+        modal.classList.add("active");
+
+    }
+
+
+    function closeImage() {
+
+        modal.classList.remove("active");
+
+    }
+
+
+    function nextImage() {
+
+        current++;
+
+        if (current >= items.length) {
+            current = 0;
+        }
+
+        modalImage.src =
+            items[current].src;
+
+    }
+
+
+    function previousImage() {
+
+        current--;
+
+        if (current < 0) {
+            current = items.length - 1;
+        }
+
+        modalImage.src =
+            items[current].src;
+
+    }
+
+
+    items.forEach((image, index) => {
+
+        image.addEventListener(
+            "click",
+            () => openImage(index)
+        );
+
+    });
+
+
+    close.addEventListener(
+        "click",
+        closeImage
+    );
+
+
+    next.addEventListener(
+        "click",
+        nextImage
+    );
+
+
+    prev.addEventListener(
+        "click",
+        previousImage
+    );
+
+
+    modal.addEventListener(
+        "click",
+        function(event) {
+
+            if (event.target === modal) {
+                closeImage();
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (!modal.classList.contains("active")) {
+                return;
+            }
+
+            if (event.key === "Escape") {
+                closeImage();
+            }
+
+            if (event.key === "ArrowRight") {
+                previousImage();
+            }
+
+            if (event.key === "ArrowLeft") {
+                nextImage();
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
+```
